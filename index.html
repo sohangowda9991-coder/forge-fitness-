@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#10131a">
+<meta name="description" content="Forge — your home fitness planner with workouts, XP, streaks and rewards.">
+<title>Forge — Home Fitness</title>
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+:root{color-scheme:dark;--bg:#0b0e13;--panel:#141923;--panel2:#1b2230;--line:#2b3444;--text:#f3f6fb;--muted:#9da9bb;--lime:#c5f36a;--green:#74e0a0;--gold:#ffd166;--red:#ff8e8e;--r:18px}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#17202c 0,#0b0e13 48%);color:var(--text);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}
+button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+.app{max-width:760px;margin:auto;padding:env(safe-area-inset-top) 16px calc(28px + env(safe-area-inset-bottom))}
+header{display:flex;align-items:center;justify-content:space-between;padding:24px 2px 18px;gap:12px}.brand{display:flex;align-items:center;gap:11px}.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--lime);color:#11170a;font-weight:950;font-size:22px}.brand h1{font-size:20px;letter-spacing:2px;margin:0}.brand p{margin:1px 0 0;color:var(--muted);font-size:11px;letter-spacing:1.3px}.pill{border:1px solid var(--line);border-radius:999px;padding:7px 10px;font-size:11px;color:var(--lime);letter-spacing:.7px;font-weight:750}
+.hero{background:linear-gradient(135deg,#202a39,#141923 70%);border:1px solid #303b4c;border-radius:24px;padding:20px;margin-bottom:20px;box-shadow:0 12px 40px #0002}.eyebrow{font-size:11px;letter-spacing:1.3px;color:var(--muted);font-weight:750}.hero h2{font-size:29px;line-height:1.08;margin:9px 0}.hero p{color:#bac4d2;margin:0 0 18px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat{background:#0e131c99;border:1px solid #ffffff0d;padding:12px;border-radius:14px;min-width:0}.stat strong{display:block;font-size:22px;line-height:1.2}.stat span{display:block;color:var(--muted);font-size:11px;margin-top:4px}.progress-label{display:flex;justify-content:space-between;gap:8px;margin:16px 0 7px;font-size:12px}.track{height:8px;border-radius:20px;background:#30394a;overflow:hidden}.fill{height:100%;background:var(--lime);border-radius:20px;transition:width .2s}.section{margin:23px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:12px}.section h3{margin:0;font-size:18px}.section-head small{color:var(--muted)}.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.day{border:1px solid var(--line);border-radius:13px;background:var(--panel);color:var(--muted);padding:10px 2px 9px;min-width:0}.day b{display:block;font-size:11px}.day span{display:block;font-size:16px;margin-top:5px}.day.active{background:var(--lime);color:#13180e;border-color:var(--lime);font-weight:800}.day.done:not(.active){border-color:#397a57;color:var(--green)}.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-bottom:10px}.workout-title{display:flex;justify-content:space-between;align-items:start;gap:12px}.workout-title h3{font-size:22px;margin:4px 0}.muted{color:var(--muted)}.tag{font-size:11px;color:var(--lime);background:#c5f36a14;border:1px solid #c5f36a35;border-radius:999px;padding:6px 8px;white-space:nowrap}.exercise{display:flex;gap:12px;align-items:start;padding:14px 0;border-bottom:1px solid var(--line)}.exercise:last-child{border-bottom:0;padding-bottom:2px}.check{appearance:none;flex:0 0 24px;width:24px;height:24px;border:1.5px solid #566277;border-radius:8px;margin:1px 0 0;display:grid;place-items:center;background:#10151d}.check:checked{background:var(--green);border-color:var(--green)}.check:checked:after{content:"✓";font-weight:950;color:#0c2115}.ex-main{flex:1;min-width:0}.ex-top{display:flex;align-items:start;justify-content:space-between;gap:8px}.ex-name{font-weight:750}.ex-reps{color:var(--muted);font-size:12px;margin-top:3px}.ex-tip{color:var(--muted);font-size:12px;margin-top:7px}.xp{font-size:11px;color:var(--gold);white-space:nowrap;font-weight:750}.done-text{text-decoration:line-through;color:var(--muted)}.btn{border:0;border-radius:12px;padding:12px 15px;font-weight:800;background:var(--lime);color:#151a0d}.btn.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted)}.btn:disabled{opacity:.45;cursor:not-allowed}.row{display:flex;gap:9px;flex-wrap:wrap}.row .btn{flex:1}.rest{display:flex;gap:12px;align-items:center}.rest-icon{width:42px;height:42px;border-radius:13px;background:#263243;display:grid;place-items:center;font-size:21px}.rest p{margin:4px 0 0;color:var(--muted);font-size:13px}.reward-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.reward{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:14px}.reward .emoji{font-size:24px}.reward h4{margin:8px 0 3px}.reward p{margin:0;color:var(--muted);font-size:12px}.reward .status{font-size:11px;margin-top:10px;color:var(--muted)}.reward.unlocked{border-color:#5e8742;background:linear-gradient(145deg,#1c2a20,var(--panel))}.reward.unlocked .status{color:var(--green);font-weight:800}.note{font-size:12px;color:var(--muted);line-height:1.55}.notice{background:#29251a;border:1px solid #594d2b;color:#f1dfaa;padding:13px;border-radius:14px;font-size:12px;line-height:1.5}.footer{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:22px 0 10px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--lime);color:#151a0d;font-weight:800;padding:12px 17px;border-radius:999px;box-shadow:0 8px 30px #0007;z-index:5;max-width:90%;text-align:center}.hidden{display:none!important}
+@media(min-width:600px){.app{padding-left:24px;padding-right:24px}.hero{padding:26px}.hero h2{font-size:34px}.day{padding:12px 5px}.card{padding:20px}}
+</style>
+</head>
+<body>
+<main class="app">
+<header><div class="brand"><div class="logo">F</div><div><h1>FORGE</h1><p>HOME FITNESS QUEST</p></div></div><span class="pill">NO GYM NEEDED</span></header>
+<section class="hero">
+  <div class="eyebrow" id="dateLabel">YOUR TRAINING JOURNEY</div>
+  <h2>Build your strength.</h2>
+  <p>Show up. Move well. Earn your next level.</p>
+  <div class="stats">
+    <div class="stat"><strong id="xpStat">0</strong><span>TOTAL XP</span></div>
+    <div class="stat"><strong id="streakStat">0 🔥</strong><span>DAY STREAK</span></div>
+    <div class="stat"><strong id="sessionsStat">0</strong><span>SESSIONS DONE</span></div>
+  </div>
+  <div class="progress-label"><b id="rankLabel">Rookie Warrior</b><span id="nextLevel">0 / 100 XP</span></div>
+  <div class="track"><div class="fill" id="levelBar" style="width:0%"></div></div>
+</section>
+<section class="section">
+ <div class="section-head"><h3>Your week</h3><small id="weekLabel">Training schedule</small></div>
+ <div class="days" id="days"></div>
+</section>
+<section class="section">
+ <div class="card">
+  <div class="workout-title"><div><div class="eyebrow" id="dayEyebrow">MONDAY · MISSION 01</div><h3 id="workoutName">Push + Abs</h3><div class="muted" id="focus">Chest · Front shoulders · Triceps · Core</div></div><span class="tag" id="duration">25–40 MIN</span></div>
+  <div class="progress-label"><b id="exerciseProgress">0 / 4 exercises</b><span id="exercisePercent">0%</span></div><div class="track"><div class="fill" id="exerciseBar" style="width:0%"></div></div>
+  <div id="exerciseList"></div>
+  <div class="row" style="margin-top:14px"><button class="btn" id="finishBtn">Complete session · +25 XP</button><button class="btn secondary" id="resetDayBtn">Reset day</button></div>
+  <p class="note" id="sessionHint" style="margin-bottom:0">Earn 10 XP per exercise. Finish all exercises to claim the 25 XP session bonus.</p>
+ </div>
+ <div class="card rest hidden" id="restCard"><div class="rest-icon">☁️</div><div><b id="restTitle">Recovery day</b><p>Rest, easy walking, and gentle mobility count as smart training too.</p></div></div>
+</section>
+
+<section class="section">
+ <div class="section-head"><h3>Posture & mobility</h3><small>5–8 minute routine</small></div>
+ <div class="card">
+  <div class="notice">These gentle exercises can support posture, mobility and comfort. They do not lengthen your bones or guarantee extra height.</div>
+  <div class="progress-label"><b id="mobilityProgress">0 / 4 completed</b><span id="mobilityPercent">0%</span></div>
+  <div class="track"><div class="fill" id="mobilityBar" style="width:0%"></div></div>
+  <div id="mobilityList"></div>
+  <p class="note" style="margin-bottom:0">Move slowly, breathe normally, and stay within a comfortable range. Stop if anything hurts. No forced stretching or painful backbends.</p>
+ </div>
+</section>
+<section class="section">
+ <div class="section-head"><h3>Reward cabinet</h3><small>Progress, not pressure</small></div>
+ <div class="reward-grid" id="rewards"></div>
+</section>
+<section class="section">
+ <div class="section-head"><h3>Personal bests</h3><small>Optional notes</small></div>
+ <div class="card">
+  <label for="notes" class="muted">Training notes — how did the session feel?</label>
+  <textarea id="notes" rows="3" placeholder="Example: push-ups felt controlled today…" style="display:block;width:100%;resize:vertical;margin:10px 0;background:#0e131c;border:1px solid var(--line);border-radius:12px;color:var(--text);padding:12px;font:inherit"></textarea>
+  <button class="btn secondary" id="saveNotes">Save notes</button>
+ </div>
+</section>
+<section class="section">
+ <div class="section-head"><h3>Train smart</h3></div>
+ <div class="notice">Warm up for 3–5 minutes, rest 60–120 seconds between sets, and leave 2–3 good reps in reserve. Eat regular balanced meals and aim for 8–10 hours of sleep. Never earn XP by training through pain.</div>
+ <p class="note">Important: wait until your recent soreness below the armpits has settled and normal movement feels comfortable before hard upper-body work. Stop if pain returns. Tell a trusted adult and seek medical advice for severe, worsening or persistent pain, or pain with breathing/chest pressure or difficulty breathing.</p>
+</section>
+<div class="footer"><span class="note">Your progress is saved on this device.</span><button class="btn ghost" id="exportBtn">Export backup</button></div>
+<div class="footer"><button class="btn ghost" id="importBtn">Import backup</button><button class="btn ghost" id="clearBtn">Reset all data</button></div>
+<input type="file" id="importFile" accept="application/json" class="hidden">
+<p class="note" style="text-align:center">FORGE · Consistency beats intensity.</p>
+</main>
+<div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
+<script>
+const WORKOUTS = {
+ Monday:{short:"MON",title:"Push + Abs",focus:"Chest · Front shoulders · Triceps · Core",items:[
+  ["Push-ups","3 sets · 6–12 reps","Keep your body straight; lower your chest under control."],
+  ["Pike push-ups","2 sets · 5–8 reps","Keep hips high; lower your head slightly ahead of your hands. Skip if shoulders hurt."],
+  ["Dead bugs","2 sets · 8 per side","Extend opposite arm and leg while keeping your trunk steady."],
+  ["Reverse crunches","2 sets · 10–15 reps","Curl your pelvis gently upward without swinging."]
+ ]},
+ Tuesday:{short:"TUE",title:"Pull Day",focus:"Back · Rear shoulders · Biceps",items:[
+  ["Backpack rows","3 sets · 8–12 reps","Use a securely closed, light bag; hinge at hips, keep back neutral and pull to lower ribs."],
+  ["Prone W raises","2 sets · 10–15 reps","Lie face down and gently squeeze shoulder blades together."],
+  ["Backpack curls","2 sets · 10–15 reps","Keep elbows by your sides and lower the bag slowly."]
+ ]},
+ Wednesday:{short:"WED",title:"Recovery",focus:"Rest · Easy walk · Gentle mobility",items:[]},
+ Thursday:{short:"THU",title:"Upper Body + Abs",focus:"Chest · Back · Core",items:[
+  ["Push-ups","3 sets · 6–12 reps","Maintain a straight body line and controlled repetitions."],
+  ["Backpack rows","3 sets · 8–12 reps","Pull toward your lower ribs without jerking the bag."],
+  ["Reverse snow angels","2 sets · 8–12 reps","Lie face down and sweep your arms slowly through a comfortable range."],
+  ["Forearm plank","2 sets · 20–40 seconds","Keep elbows under shoulders and breathe normally."]
+ ]},
+ Friday:{short:"FRI",title:"Shoulders + Arms + Core",focus:"Shoulders · Triceps · Biceps · Obliques",items:[
+  ["Pike push-ups","2 sets · 5–8 reps","Use controlled reps only when shoulders feel comfortable."],
+  ["Backpack curls","2 sets · 10–15 reps","Keep torso still and lower the bag slowly."],
+  ["Close-grip incline push-ups","2 sets · 8–12 reps","Use a sturdy elevated surface; keep elbows near your body."],
+  ["Side plank","2 sets · 15–25 sec per side","Keep hips lifted; bend knees for an easier version."]
+ ]},
+ Saturday:{short:"SAT",title:"Recovery",focus:"Rest · Play · Easy movement",items:[]},
+ Sunday:{short:"SUN",title:"Recovery",focus:"Rest · Prepare for next week",items:[]}
+};
+const ORDER=Object.keys(WORKOUTS);
+const MOBILITY=[
+ ["Wall angels","8 slow reps","Keep your back comfortable against a wall; move arms only as far as feels easy."],
+ ["Cat–cow","6–8 gentle reps","On hands and knees, slowly round and relax your back without forcing the range."],
+ ["Standing chest opener","20 seconds","Gently open your arms and chest; don't push your shoulders backward painfully."],
+ ["Hip-flexor stretch","15–20 seconds per side","Use a short split stance, gently tuck your pelvis and shift forward a little."]
+];
+const REWARDS=[
+ {xp:50,icon:"🛡️",name:"First Steps",desc:"Earn your first 50 XP."},
+ {xp:150,icon:"🥉",name:"Strength Builder",desc:"Build a repeatable routine."},
+ {xp:300,icon:"🔥",name:"Consistency Pro",desc:"Keep showing up and recovering."},
+ {xp:500,icon:"👑",name:"Forge Champion",desc:"A milestone in your journey."}
+];
+const STORAGE="forgeFitness.v1";
+function localDay(d=new Date()){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`}
+function dayFromDate(s){const d=new Date(s+"T12:00:00");return ORDER[d.getDay()===0?6:d.getDay()-1]}
+function mondayOf(s){const d=new Date(s+"T12:00:00");const day=(d.getDay()+6)%7;d.setDate(d.getDate()-day);return localDay(d)}
+function newState(){return {version:1,checks:{},claimed:[],notes:{},mobility:{},selected:dayFromDate(localDay()),weekStart:mondayOf(localDay())}}
+function load(){try{const x=JSON.parse(localStorage.getItem(STORAGE));if(x&&x.version===1)return {...newState(),...x,checks:x.checks||{},claimed:x.claimed||[],notes:x.notes||{},mobility:x.mobility||{}}}catch(e){}return newState()}
+let state=load(), toastTimer;
+const $=id=>document.getElementById(id);
+function save(){try{localStorage.setItem(STORAGE,JSON.stringify(state))}catch(e){notify("Browser storage unavailable. Export a backup to keep your progress.")}}
+function keyFor(day){return `${state.weekStart}|${day}`}
+function checked(day){return state.checks[keyFor(day)]||[]}
+function isComplete(day){const w=WORKOUTS[day];return w.items.length>0&&w.items.every((_,i)=>checked(day).includes(i))}
+function sessionKey(day){return keyFor(day)}
+function xpTotal(){let n=0;for(const [k,a] of Object.entries(state.checks))n+=a.length*10;return n+state.claimed.length*25}
+function sessionsTotal(){return state.claimed.length}
+function completedDates(){const dates=new Set();for(const k of state.claimed){const [ws,day]=k.split("|");const idx=ORDER.indexOf(day);const d=new Date(ws+"T12:00:00");d.setDate(d.getDate()+idx);dates.add(localDay(d))}return dates}
+function streak(){const dates=completedDates();let d=new Date();let today=localDay(d),count=0;if(!dates.has(today)){d.setDate(d.getDate()-1);if(!dates.has(localDay(d)))return 0}while(dates.has(localDay(d))){count++;d.setDate(d.getDate()-1)}return count}
+function rankFor(xp){if(xp>=500)return "Forge Champion";if(xp>=300)return "Consistency Pro";if(xp>=150)return "Strength Builder";if(xp>=50)return "Rising Athlete";return "Rookie Warrior"}
+function renderStats(){const xp=xpTotal(),within=xp%100;$("xpStat").textContent=xp;$("streakStat").textContent=streak()+" 🔥";$("sessionsStat").textContent=sessionsTotal();$("rankLabel").textContent=rankFor(xp);$("nextLevel").textContent=`${within} / 100 XP`; $("levelBar").style.width=within+"%";$("dateLabel").textContent=new Date().toLocaleDateString(undefined,{weekday:"long",month:"short",day:"numeric"}).toUpperCase();$("weekLabel").textContent="Week of "+new Date(state.weekStart+"T12:00:00").toLocaleDateString(undefined,{month:"short",day:"numeric"})}
+function renderDays(){const box=$("days");box.innerHTML="";for(const day of ORDER){const b=document.createElement("button");b.className="day"+(state.selected===day?" active":"")+(isComplete(day)?" done":"");b.setAttribute("aria-label",day+(isComplete(day)?", completed":""));b.innerHTML=`<b>${WORKOUTS[day].short}</b><span>${isComplete(day)?"✓":WORKOUTS[day].items.length?"•":"·"}</span>`;b.addEventListener("click",()=>{state.selected=day;save();render()});box.appendChild(b)}}
+function renderWorkout(){const day=state.selected,w=WORKOUTS[day],items=$("exerciseList"),rest=w.items.length===0; $("workoutName").textContent=w.title;$("focus").textContent=w.focus;$("dayEyebrow").textContent=`${day.toUpperCase()} · ${rest?"RECOVERY DAY":"TRAINING MISSION"}`;$("duration").textContent=rest?"REST DAY":"25–40 MIN";$("restCard").classList.toggle("hidden",!rest);$("restTitle").textContent=day+" · Recovery day";$("finishBtn").classList.toggle("hidden",rest);$("resetDayBtn").classList.toggle("hidden",rest);items.innerHTML="";
+const done=checked(day);const percent=rest?0:Math.round(done.length/w.items.length*100);$("exerciseProgress").textContent=rest?"Recovery is part of the plan":`${done.length} / ${w.items.length} exercises`;$("exercisePercent").textContent=percent+"%";$("exerciseBar").style.width=percent+"%";
+w.items.forEach((item,i)=>{const row=document.createElement("div");row.className="exercise";const check=document.createElement("input");check.type="checkbox";check.className="check";check.checked=done.includes(i);check.setAttribute("aria-label","Complete "+item[0]);const main=document.createElement("div");main.className="ex-main";const top=document.createElement("div");top.className="ex-top";const name=document.createElement("div");name.className="ex-name"+(check.checked?" done-text":"");name.textContent=item[0];const xp=document.createElement("span");xp.className="xp";xp.textContent=check.checked?"+10 XP":"10 XP";top.append(name,xp);const reps=document.createElement("div");reps.className="ex-reps";reps.textContent=item[1];const tip=document.createElement("div");tip.className="ex-tip";tip.textContent=item[2];main.append(top,reps,tip);check.addEventListener("change",()=>{let a=checked(day);if(check.checked&&!a.includes(i)){a=[...a,i];notify("Exercise complete · +10 XP")}else a=a.filter(v=>v!==i);state.checks[keyFor(day)]=a;save();render()});row.append(check,main);items.append(row)});
+const claimed=state.claimed.includes(sessionKey(day));$("finishBtn").disabled=!isComplete(day)||claimed;$("finishBtn").textContent=claimed?"Session reward claimed ✓":isComplete(day)?"Claim session bonus · +25 XP":"Complete exercises to unlock bonus";$("sessionHint").textContent=claimed?"Session bonus saved. Great work!":"Earn 10 XP per exercise. Finish all exercises to claim the 25 XP session bonus."}
+function renderRewards(){const box=$("rewards");box.innerHTML="";const xp=xpTotal();for(const r of REWARDS){const unlocked=xp>=r.xp;const el=document.createElement("div");el.className="reward"+(unlocked?" unlocked":"");el.innerHTML=`<div class="emoji">${r.icon}</div><h4>${r.name}</h4><p>${r.desc}</p><div class="status">${unlocked?"✓ UNLOCKED":`${r.xp} XP REQUIRED`}</div>`;box.append(el)}}
+function renderMobility(){
+ const today=localDay(),done=state.mobility[today]||[],box=$("mobilityList");box.innerHTML="";
+ MOBILITY.forEach((item,i)=>{
+  const row=document.createElement("div");row.className="exercise";
+  const check=document.createElement("input");check.type="checkbox";check.className="check";check.checked=done.includes(i);check.setAttribute("aria-label","Complete "+item[0]);
+  const main=document.createElement("div");main.className="ex-main";
+  const top=document.createElement("div");top.className="ex-top";
+  const name=document.createElement("div");name.className="ex-name"+(check.checked?" done-text":"");name.textContent=item[0];
+  const duration=document.createElement("span");duration.className="xp";duration.textContent=item[1];
+  top.append(name,duration);const tip=document.createElement("div");tip.className="ex-tip";tip.textContent=item[2];main.append(top,tip);
+  check.addEventListener("change",()=>{let a=state.mobility[today]||[];a=check.checked?[...a.filter(n=>n!==i),i]:a.filter(n=>n!==i);state.mobility[today]=a;save();renderMobility();notify(check.checked?"Mobility habit checked":"Mobility habit unchecked")});
+  row.append(check,main);box.append(row);
+ });
+ const n=done.length,pct=Math.round(n/MOBILITY.length*100);$("mobilityProgress").textContent=`${n} / ${MOBILITY.length} completed`;$("mobilityPercent").textContent=pct+"%";$("mobilityBar").style.width=pct+"%";
+}
+function render(){renderStats();renderDays();renderWorkout();renderMobility();renderRewards();$("notes").value=state.notes[state.weekStart]||""}
+function notify(s){const t=$("toast");t.textContent=s;t.classList.remove("hidden");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.add("hidden"),2300)}
+$("finishBtn").addEventListener("click",()=>{if(!isComplete(state.selected))return;const k=sessionKey(state.selected);if(state.claimed.includes(k))return;state.claimed.push(k);save();render();notify("Mission complete · +25 bonus XP 🏆")});
+$("resetDayBtn").addEventListener("click",()=>{if(!confirm("Reset the checked exercises for this day in this week?"))return;delete state.checks[keyFor(state.selected)];state.claimed=state.claimed.filter(k=>k!==keyFor(state.selected));save();render();notify("Day reset")});
+$("saveNotes").addEventListener("click",()=>{state.notes[state.weekStart]=$("notes").value;save();notify("Notes saved on this device")});
+$("exportBtn").addEventListener("click",()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="forge-fitness-backup.json";a.click();URL.revokeObjectURL(url);notify("Backup exported")});
+$("importBtn").addEventListener("click",()=>$("importFile").click());
+$("importFile").addEventListener("change",async e=>{const f=e.target.files[0];if(!f)return;try{const x=JSON.parse(await f.text());if(x.version!==1||!x.checks||!Array.isArray(x.claimed))throw Error("Invalid backup");state={...newState(),...x};save();render();notify("Backup restored")}catch(err){notify("That backup file could not be read")}e.target.value=""});
+$("clearBtn").addEventListener("click",()=>{if(!confirm("Erase all Forge progress, notes and rewards from this browser? Export a backup first if you want to keep them."))return;state=newState();save();render();notify("All progress reset")});
+render();
+if("serviceWorker" in navigator && location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js").catch(()=>{});
+</script>
+</body>
+</html>
